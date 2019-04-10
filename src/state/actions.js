@@ -1,0 +1,32 @@
+// PLAYER ACTIONS
+
+export const DEFLECT_TOP = 'DEFLECT_TOP';
+export const DEFLECT_CENTER = 'DEFLECT_CENTER';
+export const DEFLECT_DOWN = 'DEFLECT_DOWN';
+export const BLOCK = 'BLOCK';
+export const DODGE = 'DODGE';
+export const JUMP = 'JUMP';
+
+export const SELECT_NEXT_PLAYER_ACTION = 'SELECT_NEXT_PLAYER_ACTION';
+export const READY_TO_FIGHT = 'READY_TO_FIGHT';
+
+// ENEMY ACTIONS
+
+export const ATTACK_TOP = 'ATTACK_TOP';
+export const ATTACK_CENTER = 'ATTACK_CENTER';
+export const ATTACK_DOWN = 'ATTACK_DOWN';
+export const IMPALE = 'IMPALE';
+export const SWEEP = 'SWEEP';
+
+// BATTLE ACTIONS
+
+export const ATTACK_HIT = 'ATTACK_HIT';
+export const ATTACK_BLOCKED = 'ATTACK_BLOCKED';
+export const ATTACK_DEFLECTED = 'ATTACK_DEFLECTED';
+export const ATTACK_DODGED = 'ATTACK_DODGED';
+export const IMPALE_HIT = 'IMPALE_HIT';
+export const IMPALE_COUNTERED = 'IMPALE_COUNTERED';
+export const IMPALE_DEFLECTED = 'IMPALE_DEFLECTED';
+export const SWEEP_HIT = 'SWEEP_HIT';
+export const SWEEP_DEFLECTED = 'SWEEP_DEFLECTED';
+export const SWEEP_COUNTERED = 'SWEEP_COUNTERED';
