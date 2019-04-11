@@ -5,8 +5,10 @@ import * as actionType from '../../../state/actions';
 class GoButton extends React.Component {
   render() {
     return (
-      <div onClick={() => this.props.onReadyClick(this.props.characterStates)}>
-        READY
+      <div>
+        <div onClick={() => this.props.onReadyClick(this.props.characterStates)}>
+          READY
+        </div>
       </div>
     )
   }
@@ -25,7 +27,9 @@ function mapDispatchToProps(dispatch) {
   return {
     onReadyClick: (characterStates) =>
       dispatch({ type: actionType.READY_TO_FIGHT, payload: characterStates }),
-  }
+    changeEnemy: (characterStates) =>
+      dispatch({ type: actionType.CHANGE_ENEMY, payload: characterStates }),
+    }
 }
 
 

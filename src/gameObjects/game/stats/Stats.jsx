@@ -12,6 +12,9 @@ class Stats extends React.Component {
           <div className='Player-Stats-PostureBar'>
             <div className='Player-Stats-PostureBar-Posture' style={{width: `${this.props.playerPosture}%`}}></div>
           </div>
+          <div className='Player-Stats-Username'>
+            {this.props.playerUsername}
+          </div>
         </div>
         <div className='Enemy-Stats'>
           <div className='Enemy-Stats-HealthBar'>
@@ -19,6 +22,9 @@ class Stats extends React.Component {
           </div>
           <div className='Enemy-Stats-PostureBar'>
             <div className='Enemy-Stats-PostureBar-Posture' style={{width: `${this.props.enemyPosture}%`}}></div>
+          </div>
+          <div className='Enemy-Stats-Name'>
+            {this.props.enemyName}
           </div>
         </div>
       </div>
@@ -32,6 +38,8 @@ function mapStateToProps(state) {
     playerPosture: (state.player.currentPosture / state.player.maxPosture) * 100,
     enemyHealth: (state.enemy.currentHealth / state.enemy.maxHealth) * 100,
     enemyPosture: (state.enemy.currentPosture / state.enemy.maxPosture) * 100,
+    playerUsername: state.user.userName,
+    enemyName: state.enemy.enemyName,
   };
 }
 

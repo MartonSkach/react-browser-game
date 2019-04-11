@@ -1,6 +1,13 @@
-.Menu {
+.Main-Menu,
+.Instructions,
+.Highscore,
+.Settings {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

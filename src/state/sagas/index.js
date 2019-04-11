@@ -1,7 +1,9 @@
 import * as battleSagas from './battleSagas';
+import * as enemyController from './enemyController'
 
 const sagas = {
-  ...battleSagas
+  ...battleSagas,
+  ...enemyController,
 }
 
 export function registerSagas(middleware) {
