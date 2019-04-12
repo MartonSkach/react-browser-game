@@ -1,13 +1,13 @@
 import * as actionType from '../../../../state/actions';
 
-export const samurai = [
+export const ronin = [
   [actionType.SWEEP, actionType.ATTACK_TOP, actionType.IMPALE],
   [actionType.ATTACK_DOWN, actionType.IMPALE, actionType.ATTACK_TOP, actionType.IMPALE],
   [actionType.ATTACK_CENTER, actionType.ATTACK_TOP, actionType.ATTACK_CENTER, actionType.ATTACK_CENTER],
   [actionType.IMPALE, actionType.ATTACK_TOP, actionType.SWEEP, actionType.ATTACK_CENTER]
 ]
 
-export const samuraiStats = {
+export const roninStats = {
   enemyName: 'Ronin',
   maxHealth: 70,
   maxPosture: 80,

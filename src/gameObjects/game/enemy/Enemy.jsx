@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 class Enemy extends React.Component {
   state = {
     fighting: false,
-    positionX: 0
+    positionX: 0,
+    id: null,
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -16,8 +17,10 @@ class Enemy extends React.Component {
     if (prevState.fighting !== this.state.fighting) {
       if (this.state.fighting === true) {
         this.setState({positionX: '-40px'})
+        this.setState({id: 'Enemy-Fighting'})
       } else {
         this.setState({positionX: 0})
+        this.setState({id: null})
       }
     }
 
@@ -25,8 +28,13 @@ class Enemy extends React.Component {
   render() {
     return (
       <div className='Enemy-Object'>
-        <p>{this.props.enemyNextAction}</p>
-        <div className='Enemy-Object-Character' style={{transform: `scale(4, 4) translate(${this.state.positionX})`}}></div>
+        <p>Next Action: {this.props.enemyNextAction}</p>
+        <div
+          className='Enemy-Object-Character'
+          style={{transform: `scale(4, 4) translate(${this.state.positionX})`}}
+          id={this.state.id}
+        >
+      </div>
       </div>
     )
   }

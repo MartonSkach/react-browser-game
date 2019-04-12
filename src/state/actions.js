@@ -10,6 +10,7 @@ export const JUMP = 'JUMP';
 export const SELECT_NEXT_PLAYER_ACTION = 'SELECT_NEXT_PLAYER_ACTION';
 export const READY_TO_FIGHT = 'READY_TO_FIGHT';
 export const CHANGE_ENEMY = 'CHANGE_ENEMY';
+export const NEXT_ENEMY = 'NEXT_ENEMY';
 export const END_TURN = 'END_TURN';
 
 // ENEMY ACTIONS

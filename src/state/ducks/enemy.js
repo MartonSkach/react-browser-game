@@ -78,6 +78,24 @@ const enemyReducer = (state = initialState, action) => {
         actionArrayLength: action.actionArrayLength,
         actionArrayNumber: action.actionArray
       };
+    case actionType.NEXT_ENEMY:
+      return {
+        ...state,
+        maxHealth: action.maxHealth,
+        currentHealth: action.currentHealth,
+        maxPosture: action.maxPosture,
+        currentPosture: action.currentPosture,
+        enemyName: action.enemyName,
+        requiredFinishers: action.requiredFinishers,
+        basePostureRegeneration: action.basePostureRegeneration,
+        attackDamage: action.attackDamage,
+        impaleDamage: action.impaleDamage,
+        sweepDamage: action.sweepDamage,
+        nextAction: action.nextAction,
+        actionIterator: action.actionIterator,
+        actionArrayLength: action.actionArrayLength,
+        actionArrayNumber: action.actionArrayNumber,
+      };
     default:
       return state
     }

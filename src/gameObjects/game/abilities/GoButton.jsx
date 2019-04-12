@@ -9,6 +9,9 @@ class GoButton extends React.Component {
         <div onClick={() => this.props.onReadyClick(this.props.characterStates)}>
           READY
         </div>
+        <div onClick={() => this.props.changeEnemy(this.props.characterStates)}>
+          CHANGE ENEMY
+        </div>
       </div>
     )
   }
@@ -27,6 +30,7 @@ function mapDispatchToProps(dispatch) {
   return {
     onReadyClick: (characterStates) =>
       dispatch({ type: actionType.READY_TO_FIGHT, payload: characterStates }),
+
     changeEnemy: (characterStates) =>
       dispatch({ type: actionType.CHANGE_ENEMY, payload: characterStates }),
     }
