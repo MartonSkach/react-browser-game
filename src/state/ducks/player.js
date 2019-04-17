@@ -7,55 +7,134 @@ const initialState = {
   currentPosture: 0,
   basePostureRegeneration: 5,
   attackDamage: 10,
-  itemInSlot1: null,
-  itemInSlot2: null,
-  itemInSlot3: null,
   nextAction: actionType.BLOCK,
-  fighting: false
+  fighting: false,
+  isPostureBroken: false,
+  isAlive: true,
 }
 
-const playerReducer = (state=initialState, action) => {
-  switch(action.type) {
-    // PLAYER ACTIONS
-    case 'ATTACKING_START':
-      return {
-        ...state,
-        fighting: true,
-      };
-    case 'ATTACKING_END':
-      return {
-        ...state,
-        fighting: false,
-      };
-    case actionType.SELECT_NEXT_PLAYER_ACTION:
-      return {
-        ...state,
-        nextAction: action.payload
-      };
+const playerReducer = (state = initialState, action) => {
+  if (action.type === 'ATTACKING_START') {
+    return {
+      ...state,
+      fighting: true,
+    };
+  }
+  if (action.type === 'ATTACKING_END') {
+    return {
+      ...state,
+      fighting: false,
+    };
+  }
+  if (action.type === actionType.SELECT_NEXT_PLAYER_ACTION) {
+    return {
+      ...state,
+      nextAction: action.payload
+    };
+  }
+
+  switch (action.type) {
     // COMBAT ACTIONS
     case actionType.ATTACK_HIT:
-      return {
-        ...state,
-        currentHealth: state.currentHealth - action.payload.enemyState.attackDamage,
+      if (action.payload.playerState.isPostureBroken) {
+        return {
+          ...state,
+          currentHealth: 0,
+          currentPosture: 0,
+          isAlive: false
+        }
+      }
+      if (action.payload.playerState.currentHealth - action.payload.enemyState.attackDamage >= 1) {
+        return {
+          ...state,
+          currentHealth: state.currentHealth - action.payload.enemyState.attackDamage,
+        }
+      } else {
+        return {
+          ...state,
+          currentHealth: 0,
+          currentPosture: 0,
+          isAlive: false
+        }
       };
-      case actionType.IMPALE_HIT:
-      return {
-        ...state,
-        currentHealth: state.currentHealth - action.payload.enemyState.impaleDamage,
+    case actionType.IMPALE_HIT:
+      if (action.payload.playerState.isPostureBroken) {
+        return {
+          ...state,
+          currentHealth: 0,
+          currentPosture: 0,
+          isAlive: false
+        }
+      }
+      if (action.payload.playerState.currentHealth - action.payload.enemyState.impaleDamage >= 1) {
+        return {
+          ...state,
+          currentHealth: state.currentHealth - action.payload.enemyState.impaleDamage,
+        }
+      } else {
+        return {
+          ...state,
+          currentHealth: 0,
+          currentPosture: 0,
+          isAlive: false
+        }
       };
-      case actionType.SWEEP_HIT:
-      return {
-        ...state,
-        currentHealth: state.currentHealth - action.payload.enemyState.sweepDamage,
+    case actionType.SWEEP_HIT:
+      if (action.payload.playerState.isPostureBroken) {
+        return {
+          ...state,
+          currentHealth: 0,
+          currentPosture: 0,
+          isAlive: false
+        }
+      }
+      if (action.payload.playerState.currentHealth - action.payload.enemyState.sweepDamage >= 1) {
+        return {
+          ...state,
+          currentHealth: state.currentHealth - action.payload.enemyState.sweepDamage,
+        }
+      } else {
+        return {
+          ...state,
+          currentHealth: 0,
+          currentPosture: 0,
+          isAlive: false
+        }
       };
-      case actionType.ATTACK_BLOCKED:
-      return {
-        ...state,
-        currentPosture: state.currentPosture + action.payload.enemyState.attackDamage,
-      };
-    // TURN END
+    case actionType.ATTACK_BLOCKED:
+      if (action.payload.playerState.isPostureBroken) {
+        return {
+          ...state,
+          currentHealth: 0,
+          currentPosture: 0,
+          isAlive: false
+        }
+      }
+      if (action.payload.playerState.currentPosture + action.payload.enemyState.attackDamage >= 100) {
+        return {
+          ...state,
+          currentPosture: 100,
+        }
+      } else {
+        return {
+          ...state,
+          currentPosture: state.currentPosture + action.payload.enemyState.attackDamage,
+        };
+      }
     case actionType.END_TURN:
-      if (state.currentPosture === 0) {
+      console.log('end turn');
+      if (action.payload.playerState.isPostureBroken && state.currentPosture === 100) {
+        return {
+          ...state,
+          isPostureBroken: false,
+          currentPosture: 50
+        }
+      } else if (state.currentPosture === 100) {
+        return {
+          ...state,
+          isPostureBroken: true
+        }
+      } else if (state.currentPosture === 0) {
         return {
           ...state
         }
@@ -71,10 +150,14 @@ const playerReducer = (state=initialState, action) => {
           currentPosture: state.currentPosture - state.basePostureRegeneration * (state.currentHealth / state.maxHealth),
         }
       }
+
     default:
-      return state
+      return {
+        ...state
+      }
   }
 }
+
 
 export default playerReducer;
 

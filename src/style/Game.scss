@@ -103,34 +103,41 @@
       .Player-Object-Character {
         width: 48px;
         height: 48px;
-        background: url('../assets/characters/hero-idle.png') 0 0 no-repeat;
+        background: url('../assets/characters/hero.png') -192px 0 no-repeat;
         transform: scale(-4, 4);
         transition: transform ease-in .4s;
         animation: heroIdle 1s steps(3) infinite;
       }
       @keyframes heroIdle {
-        100% { background-position-x: -144px}
+        100% { background-position-x: -336px}
       }
       #Player-Fighting {
-        background: url('../assets/characters/hero-attacking.png') 0 0 no-repeat;
+        background: url('../assets/characters/hero.png') 0 -96px no-repeat;
         animation: heroAttack 2s steps(7);
       }
       @keyframes heroAttack {
         100% { background-position-x: -336px}
       }
+      #Player-Posture-Broken {
+        background: url('../assets/characters/hero.png') 0 0 no-repeat;
+        animation: heroPostureBroken 1s steps(3) infinite;
+      }
+      @keyframes heroPostureBroken {
+        100% { background-position-x: -144px}
+      }
       .Enemy-Object-Character {
         width: 48px;
         height: 48px;
-        background: url('../assets/characters/enemy-idle.png') 0 0 no-repeat;
+        background: url('../assets/characters/enemy.png') -192px 0 no-repeat;
         transform: scale(4);
         transition: transform ease-in .4s;
         animation: enemyIdle 1s steps(3) infinite;
       }
       @keyframes enemyIdle {
-        100% { background-position-x: -144px}
+        100% { background-position-x: -336px}
       }
       #Enemy-Fighting {
-        background: url('../assets/characters/enemy-attacking.png') 0 0 no-repeat;
+        background: url('../assets/characters/enemy.png') 0 -96px no-repeat;
         animation: enemyAttack 2s steps(7);
       }
       @keyframes enemyAttack {

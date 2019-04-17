@@ -8,7 +8,7 @@ const initialState = {
   enemyName: 'Samurai',
   requiredFinishers: 1,
   basePostureRegeneration: 8,
-  attackDamage: 8,
+  attackDamage: 25,
   impaleDamage: 15,
   sweepDamage: 12,
   nextAction: 'ATTACK_TOP',
