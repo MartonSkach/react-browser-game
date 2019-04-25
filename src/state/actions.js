@@ -9,9 +9,16 @@ export const JUMP = 'JUMP';
 
 export const SELECT_NEXT_PLAYER_ACTION = 'SELECT_NEXT_PLAYER_ACTION';
 export const READY_TO_FIGHT = 'READY_TO_FIGHT';
+export const READY_TO_FIGHT_ANIMATE = 'READY_TO_FIGHT_ANIMATE';
 export const CHANGE_ENEMY = 'CHANGE_ENEMY';
 export const NEXT_ENEMY = 'NEXT_ENEMY';
 export const END_TURN = 'END_TURN';
+export const START_BATTLE = 'START_BATTLE';
+export const START_NEW_TURN = 'START_NEW_TURN';
+export const ATTACKING_START = 'ATTACKING_START';
+export const ATTACKING_END = 'ATTACKING_END';
+
+export const UPDATE_TIMER = 'UPDATE_TIMER';
 
 // ENEMY ACTIONS
 

@@ -1,17 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actionType from '../../../state/actions';
 
 class Enemy extends React.Component {
   state = {
     fighting: false,
     positionX: 0,
     id: null,
+    isPostureBroken: false,
+    isAlive: true
   }
 
   componentDidUpdate(prevProps, prevState) {
 
+    if (prevProps.isAlive !== this.props.isAlive) {
+      this.setState({isAlive: this.props.isAlive})
+    }
+
+    if (prevState.isAlive !== this.state.isAlive) {
+      if (!this.state.isAlive) {
+        this.props.changeEnemy(this.props.characterStates)
+      }
+    }
+
+    if (prevProps.isPostureBroken !== this.props.isPostureBroken) {
+      this.setState({isPostureBroken: this.props.isPostureBroken})
+    }
+
     if (prevProps.fighting !== this.props.fighting) {
       this.setState({fighting: this.props.fighting})
+    }
+
+    if (prevState.isPostureBroken !== this.state.isPostureBroken) {
+      if (this.state.isPostureBroken) {
+        this.setState({id: 'Enemy-Posture-Broken'})
+      } else {
+        this.setState({id: null})
+      }
     }
 
     if (prevState.fighting !== this.state.fighting) {
@@ -20,7 +45,11 @@ class Enemy extends React.Component {
         this.setState({id: 'Enemy-Fighting'})
       } else {
         this.setState({positionX: 0})
-        this.setState({id: null})
+        if (this.state.isPostureBroken) {
+          this.setState({id: 'Enemy-Posture-Broken'})
+        } else {
+          this.setState({id: null})
+        }
       }
     }
 
@@ -45,7 +74,20 @@ function mapStateToProps(state) {
   return {
     fighting: state.player.fighting,
     enemyNextAction: state.enemy.nextAction,
+    isPostureBroken: state.enemy.isPostureBroken,
+    isAlive: state.enemy.isAlive,
+    characterStates: {
+      playerState: {...state.player},
+      enemyState: {...state.enemy}
+    },
   };
 }
 
-export default connect(mapStateToProps)(Enemy)
+function mapDispatchToProps(dispatch) {
+  return {
+    changeEnemy: (characterStates) =>
+      dispatch({ type: actionType.CHANGE_ENEMY, payload: characterStates }),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Enemy)

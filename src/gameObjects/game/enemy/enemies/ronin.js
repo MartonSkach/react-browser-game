@@ -16,4 +16,6 @@ export const roninStats = {
   attackDamage: 10,
   impaleDamage: 25,
   sweepDamage: 20,
+  isPostureBroken: false,
+  isAlive: true
 }

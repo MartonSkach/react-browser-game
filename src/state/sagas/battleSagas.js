@@ -1,5 +1,4 @@
-
-import { takeEvery, put, delay } from 'redux-saga/effects';
+import { takeEvery, put, delay} from 'redux-saga/effects';
 import * as actionType from '../actions';
 
 function* battleHandler(action) {
@@ -23,6 +22,7 @@ function* battleHandler(action) {
         yield put({ type: actionType.ATTACK_HIT, payload: action.payload })
         break;
     }
+    yield delay(2000);
     return yield put({ type: actionType.END_TURN, payload: action.payload })
 
   } else if (action.payload.enemyState.nextAction === actionType.ATTACK_CENTER) {
@@ -45,6 +45,7 @@ function* battleHandler(action) {
         yield put({ type: actionType.ATTACK_HIT, payload: action.payload })
         break;
     }
+    yield delay(2000);
     return yield put({ type: actionType.END_TURN, payload: action.payload })
 
   } else if (action.payload.enemyState.nextAction === actionType.ATTACK_DOWN) {
@@ -67,6 +68,7 @@ function* battleHandler(action) {
         yield put({ type: actionType.ATTACK_HIT, payload: action.payload })
         break;
     }
+    yield delay(2000);
     return yield put({ type: actionType.END_TURN, payload: action.payload })
 
   } else if (action.payload.enemyState.nextAction === actionType.IMPALE) {
@@ -81,6 +83,7 @@ function* battleHandler(action) {
         yield put({ type: actionType.IMPALE_HIT, payload: action.payload })
         break;
     }
+    yield delay(2000);
     return yield put({ type: actionType.END_TURN, payload: action.payload })
 
   } else if (action.payload.enemyState.nextAction === actionType.SWEEP) {
@@ -95,17 +98,18 @@ function* battleHandler(action) {
         yield put({ type: actionType.SWEEP_HIT, payload: action.payload })
         break;
     }
+    yield delay(2000);
     return yield put({ type: actionType.END_TURN, payload: action.payload })
   }
 }
 
-function* battleAnimator(action) {
-  yield put({ type: 'ATTACKING_START', payload: action.payload });
+function* battleAnimator() {
+  yield put({ type: actionType.ATTACKING_START });
   yield delay(2000);
-  yield put({ type: 'ATTACKING_END', payload: action.payload });
+  yield put({ type: actionType.ATTACKING_END });
 }
 
 export function* watchReadyToBattle() {
-  yield takeEvery(actionType.READY_TO_FIGHT, battleHandler);
-  yield takeEvery(actionType.READY_TO_FIGHT, battleAnimator);
+  yield takeEvery(actionType.START_BATTLE, battleHandler);
+  yield takeEvery(actionType.START_BATTLE, battleAnimator);
 }

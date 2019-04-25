@@ -29,8 +29,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onReadyClick: (characterStates) =>
-      dispatch({ type: actionType.READY_TO_FIGHT, payload: characterStates }),
-
+      dispatch({ type: actionType.START_BATTLE, payload: characterStates }),
     changeEnemy: (characterStates) =>
       dispatch({ type: actionType.CHANGE_ENEMY, payload: characterStates }),
     }

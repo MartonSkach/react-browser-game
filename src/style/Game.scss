@@ -14,6 +14,21 @@
     align-items: center;
     justify-content: space-evenly;
     padding: 10px 0px;
+    .Timer-Base {
+      height: 60px;
+      width: 60px;
+      border-radius: 30px;
+      background-color: rgb(61, 61, 61);
+      color: goldenrod;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      font-size: 30px;
+      .Timer-Text {
+        display: flex;
+        align-items: center;
+      }
+    }
     .Player-Stats-HealthBar {
       width: 252px;
       height: 12px;
@@ -58,6 +73,12 @@
         transition-delay: 0.5s;
         transition: all ease-in 1s;
       }
+      #Player-Bar-Posture-Broken {
+        animation: postureDanger .8s infinite alternate;
+      }
+      @keyframes postureDanger{
+        100% { background-color: rgb(192, 102, 60)}
+      }
     }
     .Enemy-Stats-PostureBar {
       width: 252px;
@@ -72,6 +93,12 @@
         background-color: rgb(192, 161, 60);
         transition-delay: 0.5s;
         transition: all ease-in 1s;
+      }
+      #Enemy-Bar-Posture-Broken {
+        animation: enemyPostureDanger .8s infinite alternate;
+      }
+      @keyframes enemyPostureDanger{
+        100% { background-color: rgb(192, 102, 60)}
       }
     }
     .Player-Stats-Username {
@@ -142,6 +169,13 @@
       }
       @keyframes enemyAttack {
         100% { background-position-x: -336px}
+      }
+      #Enemy-Posture-Broken {
+        background: url('../assets/characters/enemy.png') 0 0 no-repeat;
+        animation: enemyPostureBroken 1s steps(3) infinite;
+      }
+      @keyframes enemyPostureBroken {
+        100% { background-position-x: -144px}
       }
     }
   }

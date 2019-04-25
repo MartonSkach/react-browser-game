@@ -15,4 +15,6 @@ export const samuraiStats = {
   attackDamage: 8,
   impaleDamage: 15,
   sweepDamage: 12,
+  isPostureBroken: false,
+  isAlive: true
 }

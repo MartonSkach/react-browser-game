@@ -1,9 +1,17 @@
-
-import { takeEvery, put } from 'redux-saga/effects';
+import {
+  takeEvery,
+  put,
+  delay
+} from 'redux-saga/effects';
 import * as actionType from '../actions';
 
-import { samurai } from '../../gameObjects/game/enemy/enemies/samurai';
-import { ronin, roninStats } from '../../gameObjects/game/enemy/enemies/ronin';
+import {
+  samurai
+} from '../../gameObjects/game/enemy/enemies/samurai';
+import {
+  ronin,
+  roninStats
+} from '../../gameObjects/game/enemy/enemies/ronin';
 
 function* actionIterator(action) {
   let enemyType = ''
@@ -37,6 +45,8 @@ function* actionIterator(action) {
 function* enemyIterator(action) {
   let enemyMoveset = ronin;
   let enemyObject = roninStats;
+
+  yield delay(3000);
   yield put({
     type: actionType.NEXT_ENEMY,
     maxHealth: enemyObject.maxHealth,
@@ -53,7 +63,8 @@ function* enemyIterator(action) {
     actionIterator: 0,
     actionArrayLength: enemyMoveset[0].length,
     actionArrayNumber: 0,
-
+    isPostureBroken: enemyObject.isPostureBroken,
+    isAlive: enemyObject.isAlive
   })
 }
 

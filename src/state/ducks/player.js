@@ -14,13 +14,13 @@ const initialState = {
 }
 
 const playerReducer = (state = initialState, action) => {
-  if (action.type === 'ATTACKING_START') {
+  if (action.type === actionType.ATTACKING_START) {
     return {
       ...state,
       fighting: true,
     };
   }
-  if (action.type === 'ATTACKING_END') {
+  if (action.type === actionType.ATTACKING_END) {
     return {
       ...state,
       fighting: false,
@@ -113,7 +113,7 @@ const playerReducer = (state = initialState, action) => {
       if (action.payload.playerState.currentPosture + action.payload.enemyState.attackDamage >= 100) {
         return {
           ...state,
-          currentPosture: 100,
+          currentPosture: state.maxPosture,
         }
       } else {
         return {
@@ -122,14 +122,13 @@ const playerReducer = (state = initialState, action) => {
         };
       }
     case actionType.END_TURN:
-      console.log('end turn');
-      if (action.payload.playerState.isPostureBroken && state.currentPosture === 100) {
+      if (action.payload.playerState.isPostureBroken && state.currentPosture === state.maxPosture) {
         return {
           ...state,
           isPostureBroken: false,
-          currentPosture: 50
+          currentPosture: state.maxPosture / 2
         }
-      } else if (state.currentPosture === 100) {
+      } else if (state.currentPosture === state.maxPosture) {
         return {
           ...state,
           isPostureBroken: true
