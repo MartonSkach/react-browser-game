@@ -6,9 +6,6 @@ class GoButton extends React.Component {
   render() {
     return (
       <div>
-        <div onClick={() => this.props.onReadyClick(this.props.characterStates)}>
-          READY
-        </div>
         <div onClick={() => this.props.changeEnemy(this.props.characterStates)}>
           CHANGE ENEMY
         </div>
@@ -28,8 +25,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onReadyClick: (characterStates) =>
-      dispatch({ type: actionType.START_BATTLE, payload: characterStates }),
     changeEnemy: (characterStates) =>
       dispatch({ type: actionType.CHANGE_ENEMY, payload: characterStates }),
     }

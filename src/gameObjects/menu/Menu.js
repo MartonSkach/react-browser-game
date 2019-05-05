@@ -19,10 +19,12 @@ class Menu extends React.Component {
   render() {
     return (
       <div className='Main-Menu'>
-        <h1 onClick={ this.navigateToGame } >START GAME</h1>
-        <h1 onClick={ this.navigateToInstructions } >INSTRUCTIONS</h1>
-        <h1 onClick={ this.navigateToHighscores } >HIGHSCORE</h1>
-        <h1 onClick={ this.navigateToSettings } >SETTINGS</h1>
+        <div className='Main-Menu-Wrapper'>
+          <h1 onClick={ this.navigateToGame } >START GAME</h1>
+          <h1 onClick={ this.navigateToInstructions } >INSTRUCTIONS</h1>
+          <h1 onClick={ this.navigateToHighscores } >HIGHSCORE</h1>
+          <h1 onClick={ this.navigateToSettings } >SETTINGS</h1>
+        </div>
       </div>
     )
   }
