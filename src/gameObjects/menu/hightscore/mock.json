@@ -1,0 +1,29 @@
+{
+  "highscores":
+  [
+    {
+      "player": "Sekiro",
+      "points": 50000
+    },
+    {
+      "player": "Isshin Ashina",
+      "points": 25000
+    },
+    {
+      "player": "Great Shinobi Owl",
+      "points": 10000
+    },
+    {
+      "player": "Blazing Bull",
+      "points": 5000
+    },
+    {
+      "player": "Genichiro Ashina",
+      "points": 1000
+    },
+    {
+      "player": "Player",
+      "points": 0
+    }
+  ]
+}
