@@ -4,8 +4,18 @@
   height: 100%;
   background: url(../assets/playbg.png);
   background-size: 800px 600px;
+  background-position: center;
   display: flex;
   flex-direction: column;
+  transition: all ease-out 0.5s;
+  #Return-To-Main-Menu {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    position: absolute;
+    left: 5px;
+    bottom: 10px;
+  }
   .Stats {
     width: 100%;
     height: 10%;
@@ -20,7 +30,7 @@
       width: 60px;
       border-radius: 30px;
       background-color: rgb(61, 61, 61);
-      color: goldenrod;
+      color: rgb(252, 189, 216);
       font-weight: bold;
       display: flex;
       justify-content: center;
@@ -126,6 +136,7 @@
       align-items: center;
       justify-content: center;
       p {
+        color: rgb(255, 170, 217);
         padding-bottom: 50px;
       }
       .Player-Object-Character {
@@ -199,10 +210,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgb(145, 123, 1);
+      background-color: rgb(105, 74, 88);
       transition: all ease-out 0.4s;
       &:hover {
-        background-color: gold
+        background-color: rgb(223, 188, 216)
       }
       &:hover .Ability-Bar-Skill {
         opacity: 0.6;
@@ -213,6 +224,9 @@
         border-radius: 37px;
         transition: all ease-out 0.4s;
 
+      }
+      #Back-To-Menu {
+        background: url('../assets/icons/baseline-home-24px.svg') center no-repeat;
       }
       #Deflect-Up {
         background: url('../assets/icons/active1.png') center no-repeat;

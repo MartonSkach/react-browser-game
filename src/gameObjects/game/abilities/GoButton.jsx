@@ -6,9 +6,6 @@ class GoButton extends React.Component {
   render() {
     return (
       <div>
-        <div onClick={() => this.props.changeEnemy(this.props.characterStates)}>
-          CHANGE ENEMY
-        </div>
       </div>
     )
   }

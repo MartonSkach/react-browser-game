@@ -5,6 +5,7 @@ class Player extends React.Component {
   state = {
     fighting: false,
     positionX: 0,
+    scale: '(-4, 4)',
     id: null,
     isPostureBroken: false
   }
@@ -21,10 +22,12 @@ class Player extends React.Component {
 
     if (prevState.fighting !== this.state.fighting) {
       if (this.state.fighting) {
-        this.setState({positionX: '-40px'})
+        this.setState({positionX: '-10px'})
         this.setState({id: 'Player-Fighting'})
+        this.setState({scale: '(-9, 9)'})
       } else {
         this.setState({positionX: 0})
+        this.setState({scale: '(-4, 4)'})
         if (this.state.isPostureBroken) {
           this.setState({id: 'Player-Posture-Broken'})
         } else {
@@ -32,7 +35,6 @@ class Player extends React.Component {
         }
       }
     }
-
   }
 
   render() {
@@ -41,7 +43,7 @@ class Player extends React.Component {
         <p>Next action: {this.props.playerNextAction}</p>
         <div
           className='Player-Object-Character'
-          style={{transform: `scale(-4, 4) translate(${this.state.positionX})`}}
+          style={{transform: `scale${this.state.scale} translate(${this.state.positionX})`}}
           id={this.state.id}
           >
         </div>

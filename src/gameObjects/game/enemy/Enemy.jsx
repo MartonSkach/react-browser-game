@@ -6,6 +6,7 @@ class Enemy extends React.Component {
   state = {
     fighting: false,
     positionX: 0,
+    scale: '(4, 4)',
     id: null,
     isPostureBroken: false,
     isAlive: true
@@ -41,9 +42,11 @@ class Enemy extends React.Component {
 
     if (prevState.fighting !== this.state.fighting) {
       if (this.state.fighting === true) {
-        this.setState({positionX: '-40px'})
+        this.setState({scale: '(9, 9)'})
+        this.setState({positionX: '-10px'})
         this.setState({id: 'Enemy-Fighting'})
       } else {
+        this.setState({scale: '(4, 4)'})
         this.setState({positionX: 0})
         if (this.state.isPostureBroken) {
           this.setState({id: 'Enemy-Posture-Broken'})
@@ -60,7 +63,7 @@ class Enemy extends React.Component {
         <p>Next Action: {this.props.enemyNextAction}</p>
         <div
           className='Enemy-Object-Character'
-          style={{transform: `scale(4, 4) translate(${this.state.positionX})`}}
+          style={{transform: `scale${this.state.scale} translate(${this.state.positionX})`}}
           id={this.state.id}
         >
       </div>
