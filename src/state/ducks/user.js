@@ -9,12 +9,12 @@ const userReducer = (state=initialState, action) => {
   switch(action.type) {
     case actionType.CHANGE_USERNAME:
       return {
-        state,
-        userName: action.payload.userName
+        ...state,
+        userName: action.payload
       }
     case actionType.GET_HIGHSCORES:
       return {
-        state,
+        ...state,
         highscore: action.payload
       }
 
@@ -24,3 +24,12 @@ const userReducer = (state=initialState, action) => {
 }
 
 export default userReducer;
+
+// ACTION CREATORS
+
+export function changeUsername(userName) {
+  return {
+    type: actionType.CHANGE_USERNAME,
+    payload: userName
+  };
+}

@@ -41,10 +41,16 @@ class Enemy extends React.Component {
     }
 
     if (prevState.fighting !== this.state.fighting) {
-      if (this.state.fighting === true) {
-        this.setState({scale: '(9, 9)'})
-        this.setState({positionX: '-10px'})
+      if (this.state.fighting) {
+        if (this.props.winner === 'player') {
+          this.setState({positionX: '0px'})
+        } else if (this.props.winner === 'enemy') {
+          this.setState({positionX: '-35px'})
+        } else {
+          this.setState({positionX: '-20px'})
+        }
         this.setState({id: 'Enemy-Fighting'})
+        this.setState({scale: '(7, 7)'})
       } else {
         this.setState({scale: '(4, 4)'})
         this.setState({positionX: 0})
@@ -79,6 +85,7 @@ function mapStateToProps(state) {
     enemyNextAction: state.enemy.nextAction,
     isPostureBroken: state.enemy.isPostureBroken,
     isAlive: state.enemy.isAlive,
+    winner: state.game.winner,
     characterStates: {
       playerState: {...state.player},
       enemyState: {...state.enemy}

@@ -2,11 +2,28 @@ import * as actionType from '../actions';
 
 const initialState = {
   timeRemaining: 5,
-  nextTimeToSet: 5
+  nextTimeToSet: 5,
+  winner: null,
 }
 
 const gameReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionType.ATTACK_DEFLECTED:
+    case actionType.IMPALE_DEFLECTED:
+    case actionType.SWEEP_DEFLECTED:
+      return {
+        ...state,
+        winner: 'player'
+      }
+    case actionType.ATTACK_HIT:
+    case actionType.IMPALE_HIT:
+    case actionType.SWEEP_HIT:
+      return {
+        ...state,
+        winner: 'enemy'
+      }
+
+
     case actionType.UPDATE_TIMER:
       if (action.payload === 0) {
         return {
@@ -37,7 +54,8 @@ const gameReducer = (state = initialState, action) => {
       if (action.payload.playerState.isAlive) {
         return {
           ...state,
-          timeRemaining: state.nextTimeToSet
+          timeRemaining: state.nextTimeToSet,
+          winner: null,
         };
       } else {
         return {

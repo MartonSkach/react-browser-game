@@ -2,23 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectNextAction } from '../../../state/ducks/player';
 import * as actionType from '../../../state/actions';
-import { Link } from 'react-router-dom';
 
 class AbilityBar extends React.Component {
 
   render() {
     return (
       <div className='Ability-Bar'>
-        <div className='Ability-Bar-Slot' id='Return-To-Main-Menu'>
-          <Link to='/'>
-            <div
-              className='Ability-Bar-Skill'
-              id='Back-To-Menu'
-              title='Return To Main Menu'
-            >
-            </div>
-          </Link>
-        </div>
         <div className='Ability-Bar-Slot'>
           <div
             className='Ability-Bar-Skill'
@@ -78,7 +67,6 @@ class AbilityBar extends React.Component {
             onClick={this.props.selectAction} >
           </div>
         </div>
-
       </div>
     )
   }

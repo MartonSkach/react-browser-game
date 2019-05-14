@@ -1,8 +1,8 @@
 import React from 'react';
 import Player from './player/Player';
 import Enemy from './enemy/Enemy';
-import AbilityBar from './abilities/GoButton';
-import GoButton from './abilities/AbilityBar';
+import AbilityBar from './abilities/AbilityBar';
+import { HomeButton } from '../menu/HomeButton';
 import Stats from './stats/Stats';
 import { connect } from 'react-redux'
 import '../../style/Game.scss';
@@ -26,13 +26,13 @@ class Game extends React.Component {
   render() {
     return (
       <div className='Game' style={{backgroundSize: `${this.state.backgroundSize}`}}>
-          <Stats/>
+          <Stats />
         <div className='Game-Area'>
-          <Player/>
-          <Enemy/>
+          <Player />
+          <Enemy />
         </div>
-          <AbilityBar/>
-          <GoButton/>
+          <AbilityBar />
+          <HomeButton />
       </div>
     )
   }

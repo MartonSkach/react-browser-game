@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../style/Menu.scss';
+import '../../style/Spinner.scss';
 
 class Menu extends React.Component {
 

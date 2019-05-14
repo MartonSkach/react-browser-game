@@ -4,18 +4,64 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: blanchedalmond;
+  background-color: rgb(192, 192, 192);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   letter-spacing: 3px;
+  .Instructuons-CurrentPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Instructions-Page-Two {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
   .Instructions-PageController {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     display: flex;
     align-items: center;
-    height: 100px;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    .Instructions-Page-Button {
+      &#Previous {
+        background: url('../assets/icons/baseline-keyboard_arrow_left-24px.svg') center no-repeat;
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        transition: all ease-out 0.4s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 10px;
+        background-color: rgb(105, 74, 88);
+        &:hover {
+          background-color: rgb(223, 188, 216);
+        }
+      }
+      &#Next {
+        background: url('../assets/icons/baseline-keyboard_arrow_right-24px.svg') center no-repeat;
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        transition: all ease-out 0.4s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 10px;
+        background-color: rgb(105, 74, 88);
+        &:hover {
+          background-color: rgb(223, 188, 216);
+        }
+      }
+    }
   }
   .Highscores-Table {
     font-size: 20px;
@@ -23,12 +69,54 @@
     letter-spacing: 2px;
     td {
       padding: 5px 0;
+
     }
     thead {
       font-size: 25px;
       td {
-        padding: 25px 0;
+        padding: 5px 0;
+        font-family: 'Kamikaze';
       }
+    }
+  }
+  .Screen-Title {
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'Kamikaze';
+  }
+  .Name-Change-Input {
+    width: 55%;
+    height: 90px;
+    font-size: 45px;
+    padding: 0 40px;
+    letter-spacing: 2px;
+    font-family: 'Kamikaze';
+    border-radius: 45px;
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
+    transition: all ease-out 0.4s;
+    background-color: rgb(250, 220, 240);
+
+  }
+  .Name-Change-Button {
+    width: 22%;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin-top: 20px;
+    transition: all ease-out 0.4s;
+    background-color: rgb(105, 74, 88);
+    &:hover {
+      background-color: rgb(223, 188, 216);
     }
   }
 }
@@ -47,6 +135,7 @@
   align-items: center;
   color: #D22871;
   letter-spacing: 1px;
+  font-family: 'Kamikaze';
   .Main-Menu-Wrapper {
     padding-bottom: 10px;
     position: absolute;
@@ -66,6 +155,30 @@
         cursor: pointer;
         opacity: 1;
       }
+    }
+  }
+}
+
+.Return-Home {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  background-color: rgb(153, 153, 153);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .Return-Home-Button {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background: url('../assets/icons/baseline-home-24px.svg') center no-repeat;
+    transition: all ease-out 0.4s;
+    background-color: rgb(105, 74, 88);
+    &:hover {
+      background-color: rgb(223, 188, 216);
     }
   }
 }

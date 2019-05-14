@@ -8,14 +8,6 @@
   display: flex;
   flex-direction: column;
   transition: all ease-out 0.5s;
-  #Return-To-Main-Menu {
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
-    position: absolute;
-    left: 5px;
-    bottom: 10px;
-  }
   .Stats {
     width: 100%;
     height: 10%;
@@ -224,9 +216,6 @@
         border-radius: 37px;
         transition: all ease-out 0.4s;
 
-      }
-      #Back-To-Menu {
-        background: url('../assets/icons/baseline-home-24px.svg') center no-repeat;
       }
       #Deflect-Up {
         background: url('../assets/icons/active1.png') center no-repeat;

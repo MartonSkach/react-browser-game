@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actionType from '../../../state/actions';
+import { HomeButton } from '../HomeButton';
 
 class Highscore extends React.Component {
   state = {
-    highscores: [{
-      "player": "Player",
-      "points": 0
-    }]
+    highscores: []
   }
 
   componentDidUpdate(prevProps) {
@@ -17,8 +15,7 @@ class Highscore extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getHighscore();
-    console.log(this.props.highscore)
+    setTimeout(() => this.props.getHighscore(), 2000)
   }
 
   scoreTable = () => this.state.highscores.map((element, i) => {
@@ -30,10 +27,9 @@ class Highscore extends React.Component {
     )
   })
 
+
   render() {
-    return (
-      <div className='Highscore'>
-      <h1>HIGHSCORES</h1>
+    const highscores = (
       <table className='Highscores-Table'>
         <thead>
           <tr>
@@ -45,6 +41,24 @@ class Highscore extends React.Component {
           {this.scoreTable()}
         </tbody>
       </table>
+    )
+
+    const spinner = (
+      <div className="loader">
+        <div className="face">
+          <div className="circle"></div>
+        </div>
+        <div className="face">
+          <div className="circle"></div>
+        </div>
+      </div>
+    )
+
+    return (
+      <div className='Highscore'>
+      <div className='Screen-Title'><h1>HIGHSCORES</h1></div>
+      {this.state.highscores[0] === undefined ? spinner : highscores}
+      <HomeButton/>
       </div>
     )
   }

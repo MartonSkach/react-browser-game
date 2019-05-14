@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pangolin');
+@import url('https://fonts.googleapis.com/css?family=Stylish');
 @font-face {
   font-family: Kamikaze;
   src: url('./style/fonts/Kamikaze.ttf');
@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Kamikaze';
+  font-family: 'Stylish', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

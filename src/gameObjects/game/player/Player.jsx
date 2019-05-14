@@ -22,9 +22,15 @@ class Player extends React.Component {
 
     if (prevState.fighting !== this.state.fighting) {
       if (this.state.fighting) {
-        this.setState({positionX: '-10px'})
+        if (this.props.winner === 'player') {
+          this.setState({positionX: '-35px'})
+        } else if (this.props.winner === 'enemy') {
+          this.setState({positionX: '0px'})
+        } else {
+          this.setState({positionX: '-20px'})
+        }
         this.setState({id: 'Player-Fighting'})
-        this.setState({scale: '(-9, 9)'})
+        this.setState({scale: '(-7, 7)'})
       } else {
         this.setState({positionX: 0})
         this.setState({scale: '(-4, 4)'})
@@ -58,6 +64,7 @@ function mapStateToProps(state) {
     playerNextAction: state.player.nextAction,
     isPostureBroken: state.player.isPostureBroken,
     currentPosture: state.player.currentPosture,
+    winner: state.game.winner,
   };
 }
 

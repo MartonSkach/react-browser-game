@@ -162,10 +162,9 @@ export default playerReducer;
 
 // ACTION CREATORS
 
-
 export function selectNextAction(nextAction) {
   return {
-    type: 'SELECT_NEXT_PLAYER_ACTION',
+    type: actionType.SELECT_NEXT_PLAYER_ACTION,
     payload: nextAction
   };
 }
