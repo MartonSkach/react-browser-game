@@ -13,7 +13,9 @@ class Timer extends React.Component {
         if (this.state.remainingAttacks !== 1) {
           this.setState({ remainingAttacks: 1 })
         }
-        this.props.updateTimer(this.props.timeRemaining)
+        if (this.props.characterStates.playerState.isAlive && this.props.characterStates.enemyState.isAlive) {
+          this.props.updateTimer(this.props.timeRemaining)
+        }
       } else {
         this.onTimeUp()
       }

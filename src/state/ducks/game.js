@@ -62,7 +62,11 @@ const gameReducer = (state = initialState, action) => {
           ...state,
           timeRemaining: null
         };
-      }
+      };
+    case actionType.RESTART_LEVEL:
+      return {
+        ...initialState
+      };
     default:
       return state
   }

@@ -148,8 +148,11 @@ const playerReducer = (state = initialState, action) => {
           ...state,
           currentPosture: state.currentPosture - state.basePostureRegeneration * (state.currentHealth / state.maxHealth),
         }
-      }
-
+      };
+    case actionType.RESTART_LEVEL:
+      return {
+        ...initialState
+      };
     default:
       return {
         ...state

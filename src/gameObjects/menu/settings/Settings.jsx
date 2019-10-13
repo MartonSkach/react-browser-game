@@ -15,7 +15,7 @@ class Settings extends React.Component {
   changeName = () => {
     let spaceCount = 1;
     let properUsername = []
-    this.state.username.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '').split('').forEach(letter => {
+    this.state.username.replace(/[&/\\#,+()$~%.'":*?<>{}]/g, '').split('').forEach(letter => {
       if (letter === ' ') {
         if (spaceCount === 1) {
           return

@@ -180,6 +180,10 @@ const enemyReducer = (state = initialState, action) => {
         actionArrayLength: action.actionArrayLength,
         actionArrayNumber: action.actionArray
       };
+    case actionType.RESTART_LEVEL:
+      return {
+        ...initialState
+      };
     case actionType.NEXT_ENEMY:
       return {
         ...state,

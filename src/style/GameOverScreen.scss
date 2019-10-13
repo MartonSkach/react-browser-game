@@ -1,0 +1,23 @@
+.GameOver-Wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Kamikaze';
+  color: #D22871;
+  letter-spacing: 1px;
+  background-color: rgba(0, 0, 0, 0.7);
+  h1 {
+    letter-spacing: 2px;
+  }
+  .GameOver-AnswerButtons {
+    display: flex;
+    flex-direction: row;
+    div {
+      padding: 0 10px;
+    }
+  }
+}

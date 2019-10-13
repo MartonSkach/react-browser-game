@@ -16,16 +16,16 @@ class Enemy extends React.Component {
 
     if (prevProps.isAlive !== this.props.isAlive) {
       this.setState({isAlive: this.props.isAlive})
-    }
-
-    if (prevState.isAlive !== this.state.isAlive) {
-      if (!this.state.isAlive) {
-        this.props.changeEnemy(this.props.characterStates)
+      if (!this.props.isAlive) {
+        console.log('ded')
+        setTimeout(() => {
+          this.setState({id: 'Enemy-Dead'})
+        }, 1000)
+        setTimeout(() => {
+          this.setState({id: null})
+          this.props.changeEnemy(this.props.characterStates)
+        }, 3000)
       }
-    }
-
-    if (prevProps.isPostureBroken !== this.props.isPostureBroken) {
-      this.setState({isPostureBroken: this.props.isPostureBroken})
     }
 
     if (prevProps.fighting !== this.props.fighting) {
@@ -33,6 +33,7 @@ class Enemy extends React.Component {
     }
 
     if (prevState.isPostureBroken !== this.state.isPostureBroken) {
+      this.setState({isPostureBroken: this.props.isPostureBroken})
       if (this.state.isPostureBroken) {
         this.setState({id: 'Enemy-Posture-Broken'})
       } else {

@@ -1,3 +1,7 @@
+@import 'Player';
+@import 'Enemy';
+@import 'GameOverScreen';
+
 .Game {
   position: absolute;
   width: 100%;
@@ -119,69 +123,6 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    .Player-Object,
-    .Enemy-Object {
-      width: 50%;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      p {
-        color: rgb(255, 170, 217);
-        padding-bottom: 50px;
-      }
-      .Player-Object-Character {
-        width: 48px;
-        height: 48px;
-        background: url('../assets/characters/hero.png') -192px 0 no-repeat;
-        transform: scale(-4, 4);
-        transition: transform ease-in .4s;
-        animation: heroIdle 1s steps(3) infinite;
-      }
-      @keyframes heroIdle {
-        100% { background-position-x: -336px}
-      }
-      #Player-Fighting {
-        background: url('../assets/characters/hero.png') 0 -96px no-repeat;
-        animation: heroAttack 2s steps(7);
-      }
-      @keyframes heroAttack {
-        100% { background-position-x: -336px}
-      }
-      #Player-Posture-Broken {
-        background: url('../assets/characters/hero.png') 0 0 no-repeat;
-        animation: heroPostureBroken 1s steps(3) infinite;
-      }
-      @keyframes heroPostureBroken {
-        100% { background-position-x: -144px}
-      }
-      .Enemy-Object-Character {
-        width: 48px;
-        height: 48px;
-        background: url('../assets/characters/enemy.png') -192px 0 no-repeat;
-        transform: scale(4);
-        transition: transform ease-in .4s;
-        animation: enemyIdle 1s steps(3) infinite;
-      }
-      @keyframes enemyIdle {
-        100% { background-position-x: -336px}
-      }
-      #Enemy-Fighting {
-        background: url('../assets/characters/enemy.png') 0 -96px no-repeat;
-        animation: enemyAttack 2s steps(7);
-      }
-      @keyframes enemyAttack {
-        100% { background-position-x: -336px}
-      }
-      #Enemy-Posture-Broken {
-        background: url('../assets/characters/enemy.png') 0 0 no-repeat;
-        animation: enemyPostureBroken 1s steps(3) infinite;
-      }
-      @keyframes enemyPostureBroken {
-        100% { background-position-x: -144px}
-      }
-    }
   }
   .Ability-Bar {
     position: relative;

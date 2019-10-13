@@ -1,0 +1,44 @@
+.Enemy-Object {
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    color: rgb(255, 170, 217);
+    padding-bottom: 50px;
+  }
+  .Enemy-Object-Character {
+    width: 48px;
+    height: 48px;
+    background: url('../assets/characters/enemy.png') -192px 0 no-repeat;
+    transform: scale(4);
+    transition: transform ease-in .4s;
+    animation: enemyIdle 1s steps(3) infinite;
+  }
+  @keyframes enemyIdle {
+    100% { background-position-x: -336px}
+  }
+  #Enemy-Fighting {
+    background: url('../assets/characters/enemy.png') 0 -96px no-repeat;
+    animation: enemyAttack 2s steps(7);
+  }
+  @keyframes enemyAttack {
+    100% { background-position-x: -336px}
+  }
+  #Enemy-Dead {
+    background: url('../assets/characters/enemy.png') 0 -128px no-repeat;
+    animation: enemyDie 2s steps(7);
+  }
+  @keyframes enemyDie {
+    100% { background-position-x: -336px}
+  }
+  #Enemy-Posture-Broken {
+    background: url('../assets/characters/enemy.png') 0 0 no-repeat;
+    animation: enemyPostureBroken 1s steps(3) infinite;
+  }
+  @keyframes enemyPostureBroken {
+    100% { background-position-x: -144px}
+  }
+}

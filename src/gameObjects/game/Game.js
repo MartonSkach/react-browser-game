@@ -3,13 +3,13 @@ import Player from './player/Player';
 import Enemy from './enemy/Enemy';
 import AbilityBar from './abilities/AbilityBar';
 import { HomeButton } from '../menu/HomeButton';
+import GameOverScreen from '../menu/GameOverScreen';
 import Stats from './stats/Stats';
 import { connect } from 'react-redux'
 import '../../style/Game.scss';
 
 class Game extends React.Component {
   state = {
-    fighting: false,
     backgroundSize: '800px 600px'
   }
 
@@ -33,6 +33,7 @@ class Game extends React.Component {
         </div>
           <AbilityBar />
           <HomeButton />
+          { !this.props.playerIsAlive && <GameOverScreen /> }
       </div>
     )
   }
@@ -41,6 +42,7 @@ class Game extends React.Component {
 function mapStateToProps(state) {
   return {
     fighting: state.player.fighting,
+    playerIsAlive: state.player.isAlive,
   }
 }
 

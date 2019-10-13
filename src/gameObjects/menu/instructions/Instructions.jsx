@@ -6,19 +6,31 @@ class Instructions extends React.Component {
     page: 1,
     nextButtonOpacity: 1,
     previousButtonOpacity: 0.2,
+    nextButtonCursor: 'pointer',
+    previousButtonCursor: 'unset',
   }
 
   nextPage = () => {
     if (this.state.page === 1) {
       this.setState({ page: this.state.page + 1 });
-      this.setState({nextButtonOpacity: 0.2, previousButtonOpacity: 1});
+      this.setState({
+        nextButtonOpacity: 0.2,
+        previousButtonOpacity: 1,
+        nextButtonCursor: 'unset',
+        previousButtonCursor: 'pointer',
+      });
     }
   }
 
   previousPage = () => {
     if (this.state.page === 2) {
       this.setState({ page: this.state.page - 1 });
-      this.setState({nextButtonOpacity: 1, previousButtonOpacity: 0.2});
+      this.setState({
+        nextButtonOpacity: 1,
+        previousButtonOpacity: 0.2,
+        nextButtonCursor: 'pointer',
+        previousButtonCursor: 'unset',
+      });
     }
   }
 
@@ -33,10 +45,24 @@ class Instructions extends React.Component {
       <div className='Instructions-Page-Two'>
         <h2>Abilities</h2>
         <div className='Instructions-Page-Two-Paragraphs'>
-          <p><strong>Deflect</strong> - deflect in the given direction, blocking your enemy's attacks. Successful deflects automatically trigger a counter attack </p>
-          <p><strong>Block</strong> - block any normal attack to prevent health damage and receive posture damage instead.</p>
-          <p><strong>Dodge</strong> - try to dodge an attack. If you are successful, receive no damage at all, otherwise receive full damage. Dodging counters impaling attacks.</p>
-          <p><strong>Jump</strong> - jump to counter sweeping attacks.</p>
+          <div>
+            <div className='Instructions-Page-Two-Wrapper'>
+              <div className='Instructions-Page-Two-Icons' id='Deflect'></div>
+              <p><strong>Deflect</strong> - deflect in the given direction, blocking your enemy's attacks. Successful deflects automatically trigger a counter attack.</p>
+            </div>
+            <div className='Instructions-Page-Two-Wrapper' >
+              <div className='Instructions-Page-Two-Icons' id='Block'></div>
+              <p><strong>Block</strong> - block any normal attack to prevent health damage and receive posture damage instead.</p>
+            </div>
+            <div className='Instructions-Page-Two-Wrapper' >
+              <div className='Instructions-Page-Two-Icons' id='Dodge'></div>
+              <p><strong>Dodge</strong> - try to dodge an attack. If you are successful, receive no damage at all, otherwise receive full damage. Dodging counters impaling attacks.</p>
+            </div>
+            <div className='Instructions-Page-Two-Wrapper' >
+              <div className='Instructions-Page-Two-Icons' id='Jump'></div>
+              <p><strong>Jump</strong> - jump to counter sweeping attacks.</p>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -56,7 +82,7 @@ class Instructions extends React.Component {
             className='Instructions-Page-Button'
             id='Previous'
             onClick={this.previousPage}
-            style={{ opacity: `${this.state.previousButtonOpacity}`}}
+            style={{ opacity: `${this.state.previousButtonOpacity}`, cursor: `${this.state.previousButtonCursor}`}}
             >
             </div>
           <div>
@@ -66,7 +92,7 @@ class Instructions extends React.Component {
             className='Instructions-Page-Button'
             id='Next'
             onClick={this.nextPage}
-            style={{ opacity: `${this.state.nextButtonOpacity}`}}
+            style={{ opacity: `${this.state.nextButtonOpacity}`, cursor: `${this.state.nextButtonCursor}` }}
             >
             </div>
         </div>

@@ -1,20 +1,22 @@
 import React from 'react';
 import '../../style/Menu.scss';
 import '../../style/Spinner.scss';
-
+import { connect } from 'react-redux';
+import * as actionType from '../../state/actions';
 class Menu extends React.Component {
 
   navigateToGame = () => {
-    this.props.history.push('/game')
+    !this.props.playerIsAlive && this.props.restartLevel();
+    this.props.history.push('/game');
   }
   navigateToInstructions = () => {
-    this.props.history.push('/instructions')
+    this.props.history.push('/instructions');
   }
   navigateToHighscores = () => {
-    this.props.history.push('/highscores')
+    this.props.history.push('/highscores');
   }
   navigateToSettings= () => {
-    this.props.history.push('/settings')
+    this.props.history.push('/settings');
   }
 
   render() {
@@ -31,4 +33,17 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu
+function mapStateToProps(state) {
+  return {
+    playerIsAlive: state.player.isAlive,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    restartLevel: () =>
+      dispatch({ type: actionType.RESTART_LEVEL }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu)
