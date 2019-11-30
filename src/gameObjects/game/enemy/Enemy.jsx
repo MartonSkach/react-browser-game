@@ -46,12 +46,11 @@ class Enemy extends React.Component {
         if (this.props.winner === 'player') {
           this.setState({positionX: '0px'})
         } else if (this.props.winner === 'enemy') {
-          this.setState({positionX: '-35px'})
+          this.setState({positionX: '-70px'})
         } else {
-          this.setState({positionX: '-20px'})
+          this.setState({positionX: '-35px'})
         }
         this.setState({id: 'Enemy-Fighting'})
-        this.setState({scale: '(7, 7)'})
       } else {
         this.setState({scale: '(4, 4)'})
         this.setState({positionX: 0})

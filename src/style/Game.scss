@@ -6,12 +6,20 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url(../assets/playbg.png);
+  background: url(../assets/Land.png);
   background-size: 800px 600px;
   background-position: center;
   display: flex;
   flex-direction: column;
   transition: all ease-out 0.5s;
+  .Game-Ui {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/Main_UI.png);
+    background-size: 800px 600px;
+    background-position: center;
+  }
   .Stats {
     width: 100%;
     height: 10%;
@@ -109,12 +117,18 @@
       }
     }
     .Player-Stats-Username {
+      color: rgb(255, 194, 247);
       display: flex;
       justify-content: flex-start;
+      font-size: 20px;
+      padding-left: 10px;
     }
     .Enemy-Stats-Name {
+      color: rgb(255, 194, 247);
       display: flex;
       justify-content: flex-end;
+      font-size: 20px;
+      padding-right: 10px;
     }
   }
   .Game-Area {
@@ -133,8 +147,6 @@
     align-items: center;
     justify-content: center;
     padding: 10px 0px;
-    background: url('../assets/wood.jpg');
-    border-top: 5px solid rgb(51, 27, 0);
     .Ability-Bar-Slot {
       width: 80px;
       height: 80px;
