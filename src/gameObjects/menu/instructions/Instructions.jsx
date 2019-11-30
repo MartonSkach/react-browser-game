@@ -75,6 +75,7 @@ class Instructions extends React.Component {
 
     return (
       <div className='Instructions'>
+        <div className='Backdrop' />
         <div className='Screen-Title'><h1>INSTRUCTIONS</h1></div>
         <div>{pageContent}</div>
         <div className='Instructions-PageController'>

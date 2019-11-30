@@ -56,9 +56,12 @@ class Highscore extends React.Component {
 
     return (
       <div className='Highscore'>
-      <div className='Screen-Title'><h1>HIGHSCORES</h1></div>
-      {this.state.highscores[0] === undefined ? spinner : highscores}
-      <HomeButton/>
+        <div className='Backdrop' />
+        <div className='Screen-Title'>
+          <h1>HIGHSCORES</h1>
+        </div>
+        {this.state.highscores[0] === undefined ? spinner : highscores}
+        <HomeButton/>
       </div>
     )
   }

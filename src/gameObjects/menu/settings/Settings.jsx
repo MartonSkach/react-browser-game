@@ -37,6 +37,7 @@ class Settings extends React.Component {
   render() {
     return (
       <div className='Settings'>
+        <div className='Backdrop'/>
         <div className='Screen-Title'><h1>SETTINGS</h1></div>
         <input
           className='Name-Change-Input'
